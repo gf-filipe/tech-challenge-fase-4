@@ -1,4 +1,4 @@
-name: CI - Quarkus Build
+name: CI - Feedback API
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build & Test Quarkus
+    name: Build & Testes Feedback API
     runs-on: ubuntu-latest
 
 
