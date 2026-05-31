@@ -61,11 +61,6 @@ Um sistema na nuvem exige observabilidade e resiliência.
 
 ---
 
-## 🚀 5. Instruções de Execução Rápida
-
-
----
-
 ## 👨‍💻 Autores
 
 * Filipe Gonçalves Ferreira - Rm367737

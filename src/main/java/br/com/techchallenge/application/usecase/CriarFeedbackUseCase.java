@@ -73,12 +73,13 @@ public class CriarFeedbackUseCase {
 
     private void enviarAlerta(Feedback feedback) {
 
+        String dataFormatada = feedback.dataEnvio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
         try {
             ObjectNode payload = MAPPER.createObjectNode();
             payload.put("descricao", feedback.descricao);
             payload.put("urgencia", feedback.urgencia.name());
             payload.put("dataEnvio",
-                    feedback.dataEnvio.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+                    dataFormatada);
 
             String json = MAPPER.writeValueAsString(payload);
 

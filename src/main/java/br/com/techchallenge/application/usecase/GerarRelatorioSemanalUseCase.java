@@ -31,8 +31,8 @@ public class GerarRelatorioSemanalUseCase {
 
     private static final Logger LOG = Logger.getLogger(GerarRelatorioSemanalUseCase.class);
     private static final ObjectMapper MAPPER = new ObjectMapper();
-    private static final DateTimeFormatter DATE_FMT = DateTimeFormatter.ISO_DATE;
-    private static final DateTimeFormatter DATETIME_FMT = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+    private static final DateTimeFormatter DATE_FMT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final DateTimeFormatter DATETIME_FMT = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     @Inject
     FeedbackRepository repository;
