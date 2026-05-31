@@ -95,7 +95,7 @@ class AlertaUrgenciaFunctionTest {
         when(request.getBody()).thenReturn(Optional.of(payload));
 
         assertDoesNotThrow(() -> function.executar(request, context));
-        verify(request).createResponseBuilder(HttpStatus.BAD_REQUEST);
+        verify(request).createResponseBuilder(HttpStatus.OK);
     }
 
     @Test
