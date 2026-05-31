@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * Azure Function: Alerta de Urgência
  *
  * Recebe um webhook HTTP POST do Quarkus após a criação de um Feedback
- * com urgência CRITICO ou MODERADO. Envia e-mail via SMTP (Mailtrap).
+ * com urgência CRITICO. Envia e-mail via SMTP (Mailtrap).
  */
 @SuppressWarnings("unused")
 public class AlertaUrgenciaFunction {
