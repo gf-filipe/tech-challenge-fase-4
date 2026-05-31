@@ -38,7 +38,7 @@ jobs:
           cache: maven
 
       - name: Build e testes com Maven
-        run: ./mvnw clean verify -B
+        run: mvn clean verify -B
         env:
           QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://localhost:5432/feedbackdb
           QUARKUS_DATASOURCE_USERNAME: postgres
