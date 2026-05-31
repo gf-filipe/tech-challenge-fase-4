@@ -11,20 +11,6 @@ jobs:
     name: Build & Test Quarkus
     runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: postgres:15
-        env:
-          POSTGRES_DB: feedbackdb
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
       - name: Checkout código
@@ -39,11 +25,6 @@ jobs:
 
       - name: Build e testes com Maven
         run: mvn clean verify -B
-        env:
-          QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://localhost:5432/feedbackdb
-          QUARKUS_DATASOURCE_USERNAME: postgres
-          QUARKUS_DATASOURCE_PASSWORD: postgres
-
       - name: Upload relatório de testes
         if: always()
         uses: actions/upload-artifact@v4
