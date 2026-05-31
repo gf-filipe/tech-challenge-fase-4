@@ -1,0 +1,16 @@
+# Exclui o target local (o build é feito DENTRO do Docker via multi-stage)
+target/
+
+# Maven Wrapper não é necessário (Dockerfile usa a imagem oficial do Maven)
+mvnw
+mvnw.cmd
+.mvn/
+
+# Exclui arquivos desnecessários ao build
+.git/
+.github/
+azure-functions/
+prints/
+data/
+*.md
+*.png
