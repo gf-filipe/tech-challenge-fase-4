@@ -59,6 +59,33 @@ Um sistema na nuvem exige observabilidade e resiliência.
 - **Application Insights / Log Stream:** As Azure Functions estão configuradas debaixo do Azure Monitor. Toda a atividade de rede, erros e tempos de execução são rastreados nativamente pelo Application Insights.
 - **Fallback Obrigatório:** Caso as senhas do SMTP estejam ausentes ou incorretas (seja local ou na Azure), o sistema **NÃO QUEBRA**. Implementamos um fallback defensivo (blocos try-catch) que captura a falha de rede/autenticação e imprime todo o conteúdo do e-mail no *Log Stream* da Azure (console log), permitindo que o administrador ainda tenha acesso ao alerta mesmo com indisponibilidade do provedor de e-mail.
 
+## 🚀 5. Instruções de Deploy e Execução Local
+
+Para testar a aplicação localmente e validar a comunicação com a nuvem, siga os passos abaixo:
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/gf-filipe/tech-challenge-fase-4.git
+   cd tech-challenge-fase-4
+   ```
+
+2. **Suba os containers (Banco de Dados e API):**
+   Certifique-se de ter o Docker instalado e execute:
+   ```bash
+   docker-compose up --build -d
+   ```
+
+3. **Acesse a Documentação (Swagger):**
+   Com a aplicação rodando, acesse a interface interativa do Swagger OpenAPI em:
+   👉 `http://localhost:8080/swagger`
+
+4. **Teste o Alerta de Urgência:**
+   Faça um POST criando um feedback com nota `2`. Verifique os logs do Docker para confirmar o envio do alerta para a nuvem da Azure.
+
+5. **Teste o Relatório Semanal:**
+   Para testar a função de relatório sem aguardar a rotina automática (cron), faça um POST na rota de disparo manual:
+   👉 `http://localhost:8080/relatorio/disparar`
+
 ---
 
 ## 👨‍💻 Autores

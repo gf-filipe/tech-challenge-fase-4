@@ -25,13 +25,13 @@ public class FeedbackResource {
     public Response criar(Request request) {
         if (request == null) {
             return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Body da requisição está vazio ou inválido")
+                    .entity(java.util.Map.of("erro", "Body da requisição está vazio ou inválido"))
                     .build();
         }
 
         if (request.descricao == null || request.descricao.isBlank()) {
             return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Descrição não pode ser vazia")
+                    .entity(java.util.Map.of("erro", "Descrição não pode ser vazia"))
                     .build();
         }
 
